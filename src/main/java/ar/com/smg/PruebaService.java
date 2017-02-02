@@ -10,9 +10,9 @@ public class PruebaService {
 
 	@GET
 	@Path("/nada")
-	public Response getMsg(@PathParam("param") String msg) {
+	public Response getMsg() {
 
-		String output = "Jersey say : " + msg;
+		String output = "Jersey say : nada";
 
 		return Response.status(200).entity(output).build();
 
