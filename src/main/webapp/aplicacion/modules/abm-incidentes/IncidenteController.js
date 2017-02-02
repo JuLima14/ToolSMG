@@ -148,12 +148,13 @@ AbmIncidenteModule.controller('IncidenteController',['$scope','$http','$filter',
 $scope.cargarIncidentes = function (){
   $http({
     method:'GET',
-    url:'http://localhost:8080/getAll',
+//    url:'http://localhost:8080/getAll',
       //url:'http://servicio-incidente.herokuapp.com/getall',
+    url:'http://localhost:8080/ToolSMG/test/prueba',
     dataType: "application/json"
     })
     .then(function successCallback(response){
-      var log = [];
+     /* var log = [];
       var fechaConvertida;
       $scope.incidentes = [];
       $scope.params.total = response.data.length;
@@ -177,7 +178,8 @@ $scope.cargarIncidentes = function (){
       var incidente = new Incidente(parseInt(value[0]),value[1],fechaConvertida,value[3],value[4],value[5],value[6],value[7],value[8],value[9],value[10],"generadoPor");
           $scope.incidentes.push(incidente);
 
-      }, log);
+      }, log);*/
+    	alert("Response: "+response.value);
 
     });
 

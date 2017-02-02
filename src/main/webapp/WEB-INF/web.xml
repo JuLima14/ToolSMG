@@ -3,6 +3,7 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+<<<<<<< HEAD
   <display-name>Archetype Created Web Application</display-name>
   
   <servlet>
@@ -21,4 +22,24 @@
 		<servlet-name>jersey-serlvet</servlet-name>
 		<url-pattern>/api/*</url-pattern>
 	</servlet-mapping>
+=======
+    <display-name>Archetype Created Web Application</display-name>
+
+    <servlet>
+        <servlet-name>Resteasy</servlet-name>
+        <servlet-class>
+            org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
+        </servlet-class>
+        <init-param>
+            <param-name>javax.ws.rs.package</param-name>
+            <param-value>ar.com.smg.ServicioTest</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Resteasy</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+
+>>>>>>> origin/master
 </web-app>
