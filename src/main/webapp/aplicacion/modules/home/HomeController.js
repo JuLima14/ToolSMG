@@ -18,12 +18,13 @@ app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$fi
 
     $scope.listView = [];
     $scope.selectedView;
-
+    
+   
     $scope.listView.push(new View(0,"ABM Incidentes","aplicacion/modules/abm-incidentes/views/viewABMIncidentes.html"));
     $scope.listView.push(new View(1,"Casos abiertos","aplicacion/modules/abm-incidentes/views/viewABMIncidentes.html"));
     $scope.listView.push(new View(2,"ABM Pantallas","aplicacion/modules/abm-pantallas/views/viewABMPantallas.html"));
 
-    $scope.selectedView = $scope.listView[0];
+    $scope.selectedView = $scope.listView[2];
 
 
     function debounce(func, wait, context) {
@@ -80,38 +81,6 @@ app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$fi
 
 
   };
-/*
-  app.controller('LeftCtrl',['$scope', '$timeout', '$mdSidenav', '$log','$filter',LeftCtrl])
-
-
-  function LeftCtrl($scope, $timeout, $mdSidenav, $log,$filter, $templateRequest, $sce, $compile){
-    $scope.listView = [];
-    $scope.selectedView;
-
-    $scope.listView.push(new View(0,"ABM Incidentes","modules/abm-incidentes/views/viewABMIncidentes.html"));
-    $scope.listView.push(new View(1,"Casos abiertos","modules/abm-incidentes/views/viewABMIncidentes.html"));
-    $scope.listView.push(new View(2,"Carga de horas","file.html"));
-
-    $scope.selectedView = $scope.listView[0];
-
-
-
-
-    $scope.go = function(id){
-          $scope.selectedView = $scope.listView[id];
-
-    };
-    $scope.close = function () {
-      // Component lookup should always be available since we are not using `ng-if`
-      $mdSidenav('left').close()
-        .then(function () {
-          $log.debug("close LEFT is done");
-        });
-
-    };
-  };
-
-*/
 
 /**
 Copyright 2016 Google Inc. All Rights Reserved.

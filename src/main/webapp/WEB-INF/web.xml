@@ -3,16 +3,16 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
-  
-  <servlet>
+	<display-name>Archetype Created Web Application</display-name>
+
+	<servlet>
 		<servlet-name>jersey-serlvet</servlet-name>
 		<servlet-class>
-                     com.sun.jersey.spi.container.servlet.ServletContainer
-                </servlet-class>
+			com.sun.jersey.spi.container.servlet.ServletContainer
+		</servlet-class>
 		<init-param>
-		     <param-name>com.sun.jersey.config.property.packages</param-name>
-		     <param-value>ar.com.smg.services</param-value>
+			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-value>ar.com.smg.services</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
