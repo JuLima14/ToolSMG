@@ -1,19 +1,23 @@
 <html>
 <body>
 	<div ng-controller="AbmPantallaController">
-
-		<md-content layout-gt-sm="row" layout-padding> <md-input-container>
-		<label>Nombre Vista</label> <input type="text" ng-model="nombre">
-		</md-input-container> </md-content>
-
-		<md-content layout-gt-sm="row" layout-padding> <md-input-container>
-		<label>Nombre Html</label> <input type="text" ng-model="nombreHtml">
-		</md-input-container> <md-input-container> <label>Nombre
-			carpeta</label> <input type="text" ng-model="nombreCarpeta"> </md-input-container> </md-content>
-
-		<md-content layout-gt-sm="row"> <md-input-container>
+		
+		<md-content layout-gt-sm="row" layout-padding> 
+		<md-input-container>
+		<label>Nombre Vista</label> 
+		<input type="text" ng-model="nombre">
+		</md-input-container>
+		<md-input-container> 
+		<label>Nombre carpeta</label> 
+		<input type="text" ng-model="nombreCarpeta"> 
+		</md-input-container> 
+		</md-content>
+			
+		<md-content layout-gt-sm="row" layout-padding> 
+		<md-input-container>
 		<md-button class="md-primary" ng-click="guardar()">Guardar</md-button>
-		</md-input-container> </md-content>
+		</md-input-container> 
+		</md-content>
 
 		<md-input-container> <label>Filtro</label> <input
 			type="text" ng-model="filter.$"> </md-input-containter>
@@ -35,7 +39,7 @@
 					<td>{{item.url}}</td>
 					<td>{{item.posicion}}</td>
 					<td><md-button ng-click="" class="md-raised md-primary">Editar</md-button></td>
-					<td><md-button ng-click="" class="md-raised md-warn">Eliminar</md-button></td>
+					<td><md-button ng-click="eliminar(item.id)" class="md-raised md-warn">Eliminar</md-button></td>
 				</tr>
 			</tbody>
 			<tfoot>
@@ -45,9 +49,10 @@
 				</tr>
 			</tfoot>
 		</table>
+	
+	<div class="alert alert-info" ng-if="vistas.length == 0">Sin
+		pantallas ...</div>
 	</div>
-	<div class="alert alert-info" ng-if="incidentes.length == 0">Sin
-		incidentes ...</div>
 	</div>
 </body>
 </html>

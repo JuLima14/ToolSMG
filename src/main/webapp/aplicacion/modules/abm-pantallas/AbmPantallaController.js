@@ -14,19 +14,16 @@ function AbmPantallaController($scope,$http) {
     //new View(2,'vista',"aplicacion/modules/abm-pantallas/views/vista/viewVista.html")
 
     $scope.nombreCarpeta;
-    $scope.nombreHtml;
     $scope.nombre;
     $scope.posicion;
 
 
 $scope.guardar = function(){
 
-
-
-var view = new View(0,$scope.nombre,"aplicacion/modules/"+$scope.nombreCarpeta+"/views"+"/"+$scope.nombreHtml+".html");
+	var view = new View(0,$scope.nombre,"aplicacion/modules/"+$scope.nombreCarpeta+"/views"+"/"+$scope.nombre+".html");
+	$scope.vistas.push(view);
 
   $http({
-
     method:'POST',
     url:'http://localhost:8080/api/abmpantallas/registrar',
     data: view
@@ -38,4 +35,15 @@ var view = new View(0,$scope.nombre,"aplicacion/modules/"+$scope.nombreCarpeta+"
 
         });
   };
+  
+  $scope.eliminar = function(indice) {
+      var pantallas_actualizado = [];
+      for (var i = 0; i < $scope.vistas.length; i++) {
+          if (i != indice) {
+        	  pantallas_actualizado.push($scope.vistas[i]);
+          }
+      }
+      $scope.vistas = pantallas_actualizado;
+  };
+  
 };
