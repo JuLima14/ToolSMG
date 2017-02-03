@@ -38,10 +38,10 @@ public class DbContext {
 
 	private String getConnectionString() {
 			
-		String ip = "172.16.82.17";
+		String ip = "172.16.82.30";
 		String port = "3306";
-		String dataBase = "pruebatortu";
-		String user = "conector";
+		String dataBase = "root";
+		String user = "";
 		String password = "";
 	
             System.out.println("jdbc:mysql://"+ip+":"+port+"/"+dataBase+"?user="+user+"&password="+password);        
