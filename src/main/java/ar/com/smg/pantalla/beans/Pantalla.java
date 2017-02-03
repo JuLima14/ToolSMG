@@ -6,6 +6,8 @@ public class Pantalla {
 	private int id;
 	private String nombre;
 	private String url;
+	private int posicion;
+	
 	
 	public Pantalla(int id , String nombre , String url){
 		this.id = id;
@@ -33,6 +35,12 @@ public class Pantalla {
 	}
 	public void setUrl(String url) {
 		this.url = url;
+	}
+	public int getPosicion() {
+		return posicion;
+	}
+	public void setPosicion(int posicion) {
+		this.posicion = posicion;
 	}
 	
 
