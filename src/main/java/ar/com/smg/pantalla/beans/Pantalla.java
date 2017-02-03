@@ -9,10 +9,11 @@ public class Pantalla {
 	private int posicion;
 	
 	
-	public Pantalla(int id , String nombre , String url){
+	public Pantalla(int id , String nombre , String url, int posicion){
 		this.id = id;
 		this.nombre = nombre;
 		this.url = url;
+		this.posicion = posicion;
 	}
 	public Pantalla(){
 		

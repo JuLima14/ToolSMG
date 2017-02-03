@@ -13,7 +13,7 @@
         <property name="url" type="string">
             <column name="url"/>
         </property>
-        <property name="posicion" type="string">
+        <property name="posicion" type="int">
             <column name="posicion"/>
         </property>
     </class> 
