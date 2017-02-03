@@ -8,8 +8,12 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.hibernate.Session;
+
 import ar.com.smg.beans.Caso;
 import ar.com.smg.database.DbContext;
+import ar.com.smg.database.HibernateUtil;
+import ar.com.smg.pantalla.beans.Pantalla;
 
 @Path("/abmpantallas")
 public class RegistrarPantallaService {
@@ -20,18 +24,24 @@ public class RegistrarPantallaService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response registrar() {
 
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Pantalla pantalla = new Pantalla(0, "hola", "/adsda/asda",1);
 		try {
-			new DbContext().getConnection();
-			System.out.println("CONECTADO");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		
+			session.beginTransaction();
+			session.save(pantalla);
+			session.getTransaction().commit();
+		
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			session.getTransaction().rollback();
+			
 			e.printStackTrace();
+			return Response.status(200).entity("todo mal").build();
+		}finally {
+			session.close();
 		}
 				
-		return Response.status(200).entity("hola").build();
+		return Response.status(200).entity("todo OK").build();
 
 	}
 
