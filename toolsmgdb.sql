@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-02-2017 a las 15:47:01
+-- Tiempo de generación: 07-02-2017 a las 16:06:15
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 7.1.1
 
@@ -183,6 +183,12 @@ ALTER TABLE `basedeconocimientos`
 --
 ALTER TABLE `casos`
   ADD PRIMARY KEY (`IdCaso`);
+
+--
+-- Indices de la tabla `cierrescaso`
+--
+ALTER TABLE `cierrescaso`
+  ADD PRIMARY KEY (`IdCierreCaso`);
 
 --
 -- Indices de la tabla `comentarios`
