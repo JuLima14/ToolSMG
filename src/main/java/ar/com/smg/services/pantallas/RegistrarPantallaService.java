@@ -1,8 +1,8 @@
 package ar.com.smg.services.pantallas;
 
-import java.sql.SQLException;
-
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -10,26 +10,29 @@ import javax.ws.rs.core.Response;
 
 import org.hibernate.Session;
 
-import ar.com.smg.beans.Caso;
-import ar.com.smg.database.DbContext;
+import com.google.gson.Gson;
+
 import ar.com.smg.database.HibernateUtil;
-import ar.com.smg.pantalla.beans.Pantalla;
+import ar.com.smg.entities.Pantalla;
 
 @Path("/abmpantallas")
 public class RegistrarPantallaService {
 
 	
-	@GET
+	Gson gson = new Gson();
+	
+	@POST
 	@Path("/registrar")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response registrar() {
+	@Consumes("application/json")
+	@Produces("application/json")
+	public Response registrar(String pantalla) {
 
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		Pantalla pantalla = new Pantalla(0, "hola", "/adsda/asda",1);
+		
 		try {
 		
 			session.beginTransaction();
-			session.save(pantalla);
+			session.save(gson.fromJson(pantalla,Pantalla.class));
 			session.getTransaction().commit();
 		
 		} catch (Exception e) {
@@ -44,5 +47,28 @@ public class RegistrarPantallaService {
 		return Response.status(200).entity("todo OK").build();
 
 	}
+	
+	@GET
+	@Path("/getAll")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getAll() {
+		
+		
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		String response = null;
+		try {
+			session.beginTransaction();
+			response = gson.toJson(session.createQuery("from Pantalla").getResultList());
+
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+
+		return Response.ok(response).build();
+	}
+	
 
 }

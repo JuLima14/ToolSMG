@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07-feb-2017 13:07:10 by Hibernate Tools 5.1.0.Final -->
+<hibernate-mapping>
+ <class catalog="toolsmgdb" name="ar.com.smg.entities.Caso" table="casos">
+  <id name="idCaso" type="int">
+   <column name="IdCaso"/>
+   <generator class="assigned"/>
+  </id>
+  <property generated="never" lazy="false" name="descripcion" type="string">
+   <column length="65535" name="Descripcion" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="idEstado" type="int">
+   <column name="IdEstado" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="idSeveridad" type="int">
+   <column name="IdSeveridad" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="idUsuario" type="int">
+   <column name="IdUsuario" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="fechaRegistro" type="date">
+   <column length="10" name="FechaRegistro" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="fechaCierre" type="date">
+   <column length="10" name="FechaCierre" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="idSoporte" type="int">
+   <column name="IdSoporte" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="idTipoCaso" type="int">
+   <column name="IdTipoCaso" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="solicitadoPor" type="string">
+   <column length="50" name="SolicitadoPor" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="identificador" type="string">
+   <column length="50" name="Identificador" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="idModulo" type="int">
+   <column name="IdModulo" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="idAplicacion" type="int">
+   <column name="IdAplicacion" not-null="true"/>
+  </property>
+ </class>
+</hibernate-mapping>

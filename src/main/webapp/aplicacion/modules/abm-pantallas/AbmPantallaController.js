@@ -26,9 +26,9 @@ $scope.guardar = function(){
   $http({
     method:'POST',
     url:'http://localhost:8080/api/abmpantallas/registrar',
-    data: view
+    data: view,
     //headers: {'Content-Type': 'application/json'}
-    //contentType: "application/json"
+    contentType: "application/json"
     })
     .then(function successCallback(response){
 

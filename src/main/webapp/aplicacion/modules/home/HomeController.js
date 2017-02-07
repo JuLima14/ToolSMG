@@ -2,7 +2,7 @@
 //var app = angular.module('HomeModule',['ngAnimate','ngMaterial', 'ngMessages', 'material.svgAssetsCache']);
 var app = angular.module('HomeModule');
 
-app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$filter',HomeController])
+app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$filter','$http',HomeController])
 .config(function($mdThemingProvider) {
     // Configure a dark theme with primary foreground yellow
     $mdThemingProvider.theme('docs-dark', 'default')
@@ -11,22 +11,35 @@ app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$fi
 
   });
 
-  function HomeController($scope, $timeout, $mdSidenav, $log,$filter, $templateRequest, $sce, $compile){
+  function HomeController($scope, $timeout, $mdSidenav, $log,$filter, $templateRequest, $sce, $compile,$http){
     $scope.toggleLeft = buildDelayedToggler('left');
     //$scope.toggleLeft = buildToggler('left');
     //$scope.toggleRight = buildToggler('right');
 
     $scope.listView = [];
     $scope.selectedView;
-    
    
-    $scope.listView.push(new View(0,"ABM Incidentes","aplicacion/modules/abm-incidentes/views/viewABMIncidentes.html"));
-    $scope.listView.push(new View(1,"Casos abiertos","aplicacion/modules/abm-incidentes/views/viewABMIncidentes.html"));
-    $scope.listView.push(new View(2,"ABM Pantallas","aplicacion/modules/abm-pantallas/views/viewABMPantallas.html"));
+    //$scope.listView.push(new View(0,"ABM Incidentes","aplicacion/modules/abm-incidentes/views/viewABMIncidentes.html"));
+    //$scope.listView.push(new View(1,"Casos abiertos","aplicacion/modules/abm-incidentes/views/viewABMIncidentes.html"));
+    //$scope.listView.push(new View(2,"ABM Pantallas","aplicacion/modules/abm-pantallas/views/viewABMPantallas.html"));
 
     $scope.selectedView = $scope.listView[2];
-
-
+    
+    $scope.cargarVistas = function(){
+    	 $http({
+    		    method:'GET',
+    		    url:'http://localhost:8080/api/abmpantallas/registrar',
+    		    //headers: {'Content-Type': 'application/json'}
+    		    })
+    		    .then(function successCallback(response){
+    		    	$scope.listView.push(response);
+    		    	alert("Hola");
+    		        });
+    	
+    };
+    
+    $scope.cargarVistas();
+    
     function debounce(func, wait, context) {
       var timer;
 

@@ -1,17 +1,15 @@
 package ar.com.smg.database;
 
-import java.sql.SQLException;
-
 import org.hibernate.Session;
 
-import ar.com.smg.pantalla.beans.Pantalla;
+import ar.com.smg.entities.Pantalla;
 
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		Pantalla pantalla = new Pantalla(0, "hola", "/adsda/asda",1);
+		Pantalla pantalla = new Pantalla("hola", "/adsda/asda",1);
 		try {
 		
 			session.beginTransaction();

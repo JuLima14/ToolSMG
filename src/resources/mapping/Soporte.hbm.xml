@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07-feb-2017 13:07:10 by Hibernate Tools 5.1.0.Final -->
+<hibernate-mapping>
+ <class catalog="toolsmgdb" name="ar.com.smg.entities.Soporte" table="soportes">
+  <id name="idSoporte" type="int">
+   <column name="IdSoporte"/>
+   <generator class="assigned"/>
+  </id>
+  <property generated="never" lazy="false" name="descripcion" type="string">
+   <column length="65535" name="Descripcion" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="telefono" type="string">
+   <column length="20" name="Telefono" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="correo" type="string">
+   <column length="50" name="Correo" not-null="true"/>
+  </property>
+ </class>
+</hibernate-mapping>

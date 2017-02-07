@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07-feb-2017 13:07:10 by Hibernate Tools 5.1.0.Final -->
+<hibernate-mapping>
+ <class catalog="toolsmgdb"
+  name="ar.com.smg.entities.BaseDeConocimiento" table="basedeconocimientos">
+  <id name="identificador" type="string">
+   <column length="50" name="Identificador"/>
+   <generator class="assigned"/>
+  </id>
+  <property generated="never" lazy="false" name="analisis" type="string">
+   <column length="65535" name="Analisis" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="solucion" type="string">
+   <column length="65535" name="Solucion" not-null="true"/>
+  </property>
+ </class>
+</hibernate-mapping>
