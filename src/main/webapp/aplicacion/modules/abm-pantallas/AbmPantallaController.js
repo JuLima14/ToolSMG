@@ -16,11 +16,11 @@ function AbmPantallaController($scope,$http) {
     $scope.nombreCarpeta;
     $scope.nombre;
     $scope.posicion;
-
+    $scope.nombreArchivo;
 
 $scope.guardar = function(){
 
-	var view = new View(0,$scope.nombre,"aplicacion/modules/"+$scope.nombreCarpeta+"/views"+"/"+$scope.nombre+".html");
+	var view = new View(0,$scope.nombre,"aplicacion/modules/"+$scope.nombreCarpeta+"/views"+"/"+$scope.nombreArchivo+".html");
 	$scope.vistas.push(view);
 
   $http({

@@ -21,24 +21,30 @@ app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$fi
    
     //$scope.listView.push(new View(0,"ABM Incidentes","aplicacion/modules/abm-incidentes/views/viewABMIncidentes.html"));
     //$scope.listView.push(new View(1,"Casos abiertos","aplicacion/modules/abm-incidentes/views/viewABMIncidentes.html"));
-    //$scope.listView.push(new View(2,"ABM Pantallas","aplicacion/modules/abm-pantallas/views/viewABMPantallas.html"));
+    $scope.listView.push(new View(2,"ABM Pantallas","aplicacion/modules/abm-pantallas/views/viewABMPantallas.html"));
 
-    $scope.selectedView = $scope.listView[2];
+    $scope.selectedView = $scope.listView[0];
+    
+    
+    
     
     $scope.cargarVistas = function(){
-    	 $http({
-    		    method:'GET',
-    		    url:'http://localhost:8080/api/abmpantallas/registrar',
-    		    //headers: {'Content-Type': 'application/json'}
-    		    })
-    		    .then(function successCallback(response){
-    		    	$scope.listView.push(response);
-    		    	alert("Hola");
-    		        });
-    	
+    	$http({
+    	    method:'GET',
+    	    url:'http://localhost:8080/api/abmpantallas/getAll'
+    	    })
+    	    .then(function successCallback(response){
+    	    	angular.forEach(response, function(value, key) {
+    	    		$scope.listView.push(value);
+    	    	},log);
+    	    	
+    	        },
+    	        function errorCallback(response){
+    	        	$log.debug("Error en GET abmPantallas/getAll");
+    	        }
+    	    );
     };
     
-    $scope.cargarVistas();
     
     function debounce(func, wait, context) {
       var timer;
@@ -95,7 +101,3 @@ app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$fi
 
   };
 
-/**
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that can be foundin the LICENSE file at http://material.angularjs.org/HEAD/license.
-**/
