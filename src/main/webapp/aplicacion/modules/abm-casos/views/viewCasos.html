@@ -1,0 +1,157 @@
+
+<!--https://github.com/simplicitylabs/si-table-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title text="Incidentes">Incidentes</title>
+</head>
+<body>
+	<md-content ng-controller="IncidenteController" layout-gt-sm="row"
+		layout-padding md-theme="">
+
+	<form action="incidenteForm">
+
+
+<md-content layout-gt-sm="row"> 
+	
+	<md-content layout-padding>
+		<!-- Primera Linea -->
+		<md-content layout-gt-sm="row" > 
+			
+		<md-input-container class="md-block" flex-gt-sm>
+				<label>Codigo</label> 
+				<input type="number" ng-model="codigo">
+		</md-input-container> 
+		 
+		<md-input-container class="md-block" flex-gt-sm>
+				<label> Fecha registro </label> 
+        		<md-datepicker ng-model="fechaRegistro" md-open-on-focus></md-datepicker> 
+		</md-input-container> 
+		
+		</md-content>
+		
+		
+		<!-- Segunda Linea -->
+		<md-content layout-gt-sm="row"  layout-padding> 
+		
+		<md-input-container class="md-block" flex-gt-sm> 
+			<label>Aplicación </label>
+		 	<md-select ng-model="aplicacion"> 
+		 		<md-option ng-repeat="aplicacion in aplicaciones" value="{{aplicacion.aplicacion}}">
+		 			{{est.est}} 
+		 		</md-option> 
+		 	</md-select> 
+		</md-input-container>
+		
+		 <md-input-container class="md-block" flex-gt-sm>
+			<label> Tipo </label> 
+			<md-select ng-model="tipo"> 
+				<md-option ng-repeat="tipo in Tipos" value="{{tipo.tipo}}">
+					{{tipo.tipo}} 
+				</md-option> 
+			</md-select>
+		</md-input-container> 
+		  
+		</md-content>
+		
+		<!-- Tercera Linea -->
+		<md-content layout-gt-sm="row"  layout-padding> 
+		
+		<md-input-container class="md-block" flex-gt-sm> 
+			<label>Módulo</label>
+		 	<md-select ng-model="modulo"> 
+		 		<md-option ng-repeat="modulo in modulos" value="{{modulo.modulo}}">
+		 			{{modulo.modulo}} 
+		 		</md-option> 
+		 	</md-select> 
+		</md-input-container>
+		
+		 <md-input-container class="md-block" flex-gt-sm>
+			<label> Clasificacion </label> 
+			<md-select ng-model="clasificacion"> 
+				<md-option ng-repeat="clasificacion in clasificaciones" value="{{clasificacion.clasificacion}}">
+					{{clasificacion.clasificacion}} 
+				</md-option> 
+			</md-select>
+		</md-input-container> 
+		  
+		</md-content>
+		
+		<!-- Cuarta Linea -->
+		<md-content layout-gt-sm="row"  layout-padding> 
+		
+		<md-input-container class="md-block" flex-gt-sm>
+				<label>Reportado por</label> 
+				<input type="text" ng-model="reportadoPor">
+		</md-input-container> 
+		
+		 <md-input-container class="md-block" flex-gt-sm>
+			<label> Vinculo </label> 
+			<md-select ng-model="vinculo"> 
+				<md-option ng-repeat="vinculo in vinculos" value="{{vinculo.vinculo}}">
+					{{vinculo.vinculo}} 
+				</md-option> 
+			</md-select>
+		</md-input-container> 
+		  
+		</md-content>
+	</md-content>
+	<md-content layout-padding>
+	
+		<md-content layout-gt-sm="column" > 
+			<md-input-container  layout-padding> 
+			<label> Descripcion </label> 
+				<textarea ng-model="descripcion" style="margin: 1px 1px 1px; min-height: 140px; max-width: 600px; max-height: 50px; width: 600px; height: 80px;overflow-y: scroll ">
+				</textarea>
+			</md-input-container>
+			 
+			 <md-content layout-gt-sm="row" >
+				<md-input-container>
+					<label>Imputado</label> 
+					<input type="text" ng-model="imputado">
+				</md-input-container>
+				<md-input-container >
+					<label> Cierre </label> 
+        			<md-datepicker ng-model="fechaCierre" md-open-on-focus></md-datepicker> 
+				</md-input-container> 
+			</md-content>
+			
+			<md-content layout-gt-sm="row" >
+				<md-input-container>
+					<label>Estimado</label> 
+					<input type="text" ng-model="estimado">
+				</md-input-container> 
+			</md-content>
+			
+		</md-content>
+		
+	</md-content>
+	
+</md-content>	
+
+		<md-content layout-padding> 
+			<md-input-container>
+				<input disabled placeholder="  "
+					style="margin: 1px 1px 10px; max-width: 1000px; width: 1000px;">
+			</md-input-containter>
+		</md-content>
+		
+		<!--
+	
+		 <md-content layout-gt-sm="row"> <md-input-container
+			layout-gt-sm="row" layout-padding> <md-button
+			ng-click="guardar()" class="md-raised md-primary">Guardar</md-button>
+		<md-button ng-click="limpiarDatos()" class="md-raised md-warn">Limpiar</md-button>
+		</md-input-containter></md-content>
+
+		<md-content layout-gt-sm="row"> <md-input-container>
+		<input disabled placeholder="  "
+			style="margin: 1px 1px 10px; max-width: 1000px; width: 1000px;">
+		</md-input-containter>
+		</md-content>-->
+	 </form>
+	
+	</md-content>
+</body>
+</html>

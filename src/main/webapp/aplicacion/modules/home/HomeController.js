@@ -20,7 +20,7 @@ app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$fi
     $scope.selectedView;
    
     //$scope.listView.push(new View(0,"ABM Incidentes","aplicacion/modules/abm-incidentes/views/viewABMIncidentes.html"));
-    //$scope.listView.push(new View(1,"Casos abiertos","aplicacion/modules/abm-incidentes/views/viewABMIncidentes.html"));
+    $scope.listView.push(new View(1,"ABM Casos","aplicacion/modules/abm-casos/views/viewCasos.html"));
     $scope.listView.push(new View(2,"ABM Pantallas","aplicacion/modules/abm-pantallas/views/viewABMPantallas.html"));
 
     $scope.selectedView = $scope.listView[0];
