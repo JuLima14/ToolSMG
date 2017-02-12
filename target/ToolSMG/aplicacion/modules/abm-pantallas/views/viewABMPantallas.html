@@ -1,26 +1,64 @@
 <html>
 <body>
-<div ng-controller="AbmPantallaController" ng-cloak>
-  <md-content class="md-padding">
-    <md-imput-container>
-      <label>Nombre Vista</label>
-      <input type="text" ng-model="nameView">
-      <label>Nombre controller</label>
-      <input type="text" ng-model="nameScript">
-      <label>Nombre Html</label>
-      <input type="text" ng-model="nameHtml">
-      <label>Nombre carpeta</label>
-      <input type="text" ng-model="folder">
-      <md-button class="md-primary" ng-click="save()">Guardar</md-button>
-    </md-input-container>
+	<div ng-controller="AbmPantallaController">
+		
+		<md-content layout-gt-sm="row" layout-padding> 
+		<md-input-container>
+		<label>Nombre Vista</label> 
+		<input type="text" ng-model="nombre">
+		</md-input-container>
+		
+		<md-input-container> 
+		<label>Nombre Archivo</label> 
+		<input type="text" ng-model="nombreArchivo">
+		</md-input-container>
+		
+		<md-input-container> 
+		<label>Nombre Carpeta</label> 
+		<input type="text" ng-model="nombreCarpeta"> 
+		</md-input-container> 
+		</md-content>
+			
+		<md-content layout-gt-sm="row" layout-padding> 
+		<md-input-container>
+		<md-button class="md-primary" ng-click="guardar()">Guardar</md-button>
+		</md-input-container> 
+		</md-content>
 
-    <md-nav-bar  nav-bar-aria-label="navigation links">
-      <md-nav-item ng-repeat="item in listView" md-nav-click="go(item.id)" name="{{item.name}}">{{item.name}}</md-nav-item>
-    </md-nav-bar>
-    <div class="ext-content">
-      <div ng-include="selectedView.url"></div>
-    </div>
-  </md-content>
-</div>
+		<md-input-container> <label>Filtro</label> <input
+			type="text" ng-model="filter.$"> </md-input-containter>
+		<table class="table" si-table>
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>Nombre</th>
+					<th>Url</th>
+					<th>Posicion</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr si-sortable ng-repeat="item in vistas | filter:filter">
+					<td>{{item.id}}</td>
+					<td>{{item.nombre}}</td>
+					<td>{{item.url}}</td>
+					<td>{{item.posicion}}</td>
+					<td><md-button ng-click="" class="md-raised md-primary">Editar</md-button></td>
+					<td><md-button ng-click="eliminar(item.id)" class="md-raised md-warn">Eliminar</md-button></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="5"><si-table-pagination limit="10"
+							class="ng-isolate-scope"> </si-table-pagination></td>
+				</tr>
+			</tfoot>
+		</table>
+	
+	<div class="alert alert-info" ng-if="vistas.length == 0">Sin
+		pantallas ...</div>
+	</div>
+	</div>
 </body>
 </html>

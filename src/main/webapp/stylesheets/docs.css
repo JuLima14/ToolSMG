@@ -334,7 +334,7 @@ iframe.example {
 
 @
 supports ((column-count: 2) or (-moz-column-count: 2) or (-ms-column-count: 
-	2) or (-webkit-column-count: 2)) { .search-results-group.col-group-api .search-results
+	 2) or (-webkit-column-count: 2)) { .search-results-group.col-group-api .search-results
 	{
 	-moz-column-count: 2;
 	-ms-column-count: 2;
@@ -385,7 +385,7 @@ supports (-moz-column-count: 2) { .search-results-group .search-result {
 
 @
 supports ((column-count: 2) or (-moz-column-count: 2) or (-ms-column-count: 
-	2) or (-webkit-column-count: 2)) { .search-results-group.col-group-api .search-result
+	 2) or (-webkit-column-count: 2)) { .search-results-group.col-group-api .search-result
 	{
 	width: auto;
 	display: list-item;
@@ -768,7 +768,7 @@ ul.methods>li, ul.events>li {
 	}
 	@
 	supports ((column-count: 2) or (-moz-column-count: 2) or (-ms-column-count: 
-		2) or (-webkit-column-count: 2)) { .search-results-group .search-results
+		 2) or (-webkit-column-count: 2)) { .search-results-group .search-results
 		{
 		-moz-column-count: 2;
 		-ms-column-count: 2;
@@ -795,7 +795,7 @@ ul.methods>li, ul.events>li {
 
 @
 supports ((column-count: 2) or (-moz-column-count: 2) or (-ms-column-count: 
-	2) or (-webkit-column-count: 2)) { .search-results-group .search-result
+	 2) or (-webkit-column-count: 2)) { .search-results-group .search-result
 	{
 	display: list-item !important;
 }

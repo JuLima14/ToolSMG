@@ -1,6 +1,6 @@
- function View(id,name,url){
+ function View(id,nombre,url){
           this.id= id;
-          this.name = name;
+          this.nombre = nombre;
           this.url = url;
-          this.text="";
+          this.posicion= id;
       }

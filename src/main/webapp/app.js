@@ -1,12 +1,13 @@
 // declare modules of APLICACION
 angular.module('libraries',['siTable','ngAnimate','ngMaterial', 'ngMessages', 'material.svgAssetsCache','ngRoute','ngCookies']);
+angular.module('AbmCasosModule',['libraries']);
 angular.module('AbmPantallaModule',['libraries']);
 angular.module('AbmIncidenteModule',['libraries']);
 angular.module('HomeModule', ['libraries']);
 //declare modules of LOGIN
 angular.module('AuthenticationModule', ['libraries']);
 angular.module('HttpAuthModule',['libraries']);
-angular.module('AppModule', ['HttpAuthModule','AuthenticationModule','HomeModule','AbmIncidenteModule','AbmPantallaModule'])
+angular.module('AppModule', ['HttpAuthModule','AuthenticationModule','HomeModule','AbmIncidenteModule','AbmCasosModule','AbmPantallaModule'])
 
 
 
@@ -18,13 +19,13 @@ angular.module('HttpAuthModule')
     $routeProvider
         .when('/login', {
             controller: 'AuthenticationController',
-            templateUrl: 'aplicacion/modules/login/views/login.html',
+            templateUrl: 'aplicacion/modulos/login/views/login.html',
             hideMenus: true
         })
 
         .when('/', {
             controller: 'HomeController',
-            templateUrl: 'aplicacion/modules/home/views/home.html'
+            templateUrl: 'aplicacion/modulos/home/views/home.html'
         })
 
         .otherwise({ redirectTo: '/login' });

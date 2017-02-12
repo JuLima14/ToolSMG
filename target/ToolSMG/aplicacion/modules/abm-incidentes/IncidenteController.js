@@ -25,8 +25,8 @@ AbmIncidenteModule.controller('IncidenteController',['$scope','$http','$filter',
     $scope.estado = '';
     $scope.prioridad = '';
     $scope.descripcion = '';
-	  $scope.cauTexto = '';
-	  $scope.numero ;
+	$scope.cauTexto = '';
+	$scope.numero ;
 
 
     $scope.estadosIncidente = ('1 - Recibido ;2 - En proceso ;3 - En pausa ;4 - Fix en otro INC ;5 - Envio Pre ;6 - Envio Pro ;7 - Re Abierto ;8 - Cerrado ;9 - Derivado ;10 - Requiere OK SMG ;11 - Verifica y Cierra ;12 - Portal No autorizado ;13 - En sector QA - STK')
@@ -148,8 +148,7 @@ AbmIncidenteModule.controller('IncidenteController',['$scope','$http','$filter',
 $scope.cargarIncidentes = function (){
   $http({
     method:'GET',
-    url:'http://localhost:8080/getAll',
-      //url:'http://servicio-incidente.herokuapp.com/getall',
+    url:'http://localhost:8080/',
     dataType: "application/json"
     })
     .then(function successCallback(response){

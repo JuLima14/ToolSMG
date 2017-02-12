@@ -1,0 +1,14 @@
+<div ng-controller="AbmCasosController">
+	
+	<md-content class="md-padding"> 
+	<md-nav-bar
+		nav-bar-aria-label="navigation links"> <md-nav-item
+		ng-repeat="item in vistas" md-nav-click="go(item.id)"
+		name="{{item.nombre}}">{{item.nombre}}</md-nav-item> 
+	</md-nav-bar>
+	<div class="ext-content">
+		<div ng-include="vistaSeleccionada.url"></div>
+	</div>
+	</md-content>
+	
+</div>
