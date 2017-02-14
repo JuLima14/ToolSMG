@@ -13,7 +13,7 @@
 				<label class="col-md-4 control-label">Código</label>
 				<div class="col-md-4 inputGroupContainer">
 					<div class="input-group">
-						<input name="codigo" placeholder="Código" class="form-control"
+						<input name="codigo" ng-model="caso.codigo" placeholder="Código" class="form-control"
 							type="number">
 					</div>
 				</div>
@@ -24,7 +24,7 @@
 				<label class="col-md-4 control-label">Aplicación</label>
 				<div class="col-md-4 inputGroupContainer">
 					<div class="input-group">
-						<select ng-model="aplicacion" class="form-control selectpicker">
+						<select ng-model="caso.aplicacion" class="form-control selectpicker">
 							<option ng-repeat="aplicacion in aplicaciones"
 								value="{{aplicacion.aplicacion}}">{{aplicacion.aplicacion}}</option>
 						</select>
@@ -199,9 +199,9 @@
 				<label class="col-md-4 control-label">Estado</label>
 				<div class="col-md-4 inputGroupContainer">
 					<div class="input-group">
-						<select ng-model="aplicacion" class="form-control selectpicker">
-							<option ng-repeat="aplicacion in aplicaciones"
-								value="{{aplicacion.aplicacion}}">{{aplicacion.aplicacion}}</option>
+						<select ng-model="caso.estado" class="form-control ">
+							<option ng-repeat="estado in estados"
+								value="{{estado.estado}}">{{estado.estado}}</option>
 						</select>
 					</div>
 				</div>
@@ -212,9 +212,16 @@
 				<label class="col-md-4 control-label">Prioridad</label>
 				<div class="col-md-4 inputGroupContainer">
 					<div class="input-group">
-						<select ng-model="aplicacion" class="form-control selectpicker">
-							<option ng-repeat="aplicacion in aplicaciones"
-								value="{{aplicacion.aplicacion}}">{{aplicacion.aplicacion}}</option>
+						<select ng-model="caso.prioridad" class="form-control selectpicker">
+						<option value="Seleccionar" selected="selected"></option>
+						<div ng-if="{{reiniciar}} == 1">
+							<option ng-repeat="prioridad in prioridades" value="{{prioridad.prioridad}}">
+								{{prioridad.prioridad}}
+							</option>
+						</div>
+						<div ng-if="reiniciar == 0">
+							<option value="-1" selected="selected">Seleccionar</option>
+						</div>
 						</select>
 					</div>
 				</div>
