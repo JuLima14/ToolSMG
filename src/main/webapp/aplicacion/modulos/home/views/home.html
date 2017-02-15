@@ -4,13 +4,13 @@
 <head>
 
 </head>
-<body ng-controller="HomeController" on-init="cargarVistas()">
+<body ng-controller="HomeController" >
 
 	<section>
 		<md-toolbar md-scroll-shrink ng-if="true">
 		<div class="md-toolbar-tools">
 			<md-button class="md-icon-button" aria-label="Settings"
-				ng-disabled="false" ng-click="toggleLeft()"> <md-icon
+				ng-disabled="false" ng-click="toggleLeft();cargarVistas()"> <md-icon
 				md-svg-icon="img/icons/menu.svg"></md-icon> </md-button>
 
 			<h5 class="md-toolbar-tools">{{vistaSeleccionada.nombre}}</h5>

@@ -28,20 +28,16 @@ app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$fi
     };
     
     $scope.cargarVistas = function(){
-    	$http({
-    	    method:'GET',
-    	    url:'http://localhost:8080/api/abmpantallas/getAll'
-    	    })
-    	    .then(function successCallback(response){
-    	    	angular.forEach(response, function(value, key) {
-    	    		$scope.vistas.push(value);
-    	    	},log);
-    	    	
-    	        },
-    	        function errorCallback(response){
-    	        	$log.debug("Error en GET abmPantallas/getAll");
-    	        }
-    	    );
+    	if($scope.vistas.length == 0){
+    	$.ajax({
+    		method:'GET',
+    		url: "http://localhost:8080/api/abmpantallas/getAll",
+    		success: function(result){
+    				angular.forEach(result, function(value, key) {
+    	    			$scope.vistas.push(value);
+    				});
+    		}});
+    	}
     };
     
     

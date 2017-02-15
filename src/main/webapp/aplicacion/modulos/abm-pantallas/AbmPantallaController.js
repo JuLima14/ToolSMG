@@ -20,8 +20,8 @@ function AbmPantallaController($scope,$http) {
 
 $scope.guardar = function(){
 
-	var view = new View(0,$scope.nombre,"aplicacion/modulos/"+$scope.nombreCarpeta+"/views"+"/"+$scope.nombreArchivo+".html");
-	$scope.vistas.push(view);
+	var pantalla = new Pantalla(0,$scope.nombre,"aplicacion/modulos/"+$scope.nombreCarpeta+"/views"+"/"+$scope.nombreArchivo+".html");
+	$scope.vistas.push(pantalla);
 
   $http({
     method:'POST',
