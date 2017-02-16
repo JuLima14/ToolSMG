@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.2.7.1
+-- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-02-2017 a las 16:06:15
--- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 7.1.1
+-- Tiempo de generación: 16-02-2017 a las 21:40:41
+-- Versión del servidor: 5.5.39
+-- Versión de PHP: 5.4.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de datos: `toolsmgdb`
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `aplicaciones`
 --
 
-CREATE TABLE `aplicaciones` (
+CREATE TABLE IF NOT EXISTS `aplicaciones` (
   `IdAplicacion` int(11) NOT NULL,
   `Descripcion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
@@ -37,7 +37,7 @@ CREATE TABLE `aplicaciones` (
 -- Estructura de tabla para la tabla `basedeconocimientos`
 --
 
-CREATE TABLE `basedeconocimientos` (
+CREATE TABLE IF NOT EXISTS `basedeconocimientos` (
   `Identificador` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
   `Analisis` text COLLATE latin1_spanish_ci NOT NULL,
   `Solucion` text COLLATE latin1_spanish_ci NOT NULL
@@ -49,7 +49,7 @@ CREATE TABLE `basedeconocimientos` (
 -- Estructura de tabla para la tabla `casos`
 --
 
-CREATE TABLE `casos` (
+CREATE TABLE IF NOT EXISTS `casos` (
   `IdCaso` int(11) NOT NULL,
   `Descripcion` text COLLATE latin1_spanish_ci NOT NULL,
   `IdEstado` int(11) NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE `casos` (
 -- Estructura de tabla para la tabla `cierrescaso`
 --
 
-CREATE TABLE `cierrescaso` (
+CREATE TABLE IF NOT EXISTS `cierrescaso` (
   `IdCierreCaso` int(11) NOT NULL,
   `Descripcion` int(11) NOT NULL,
   `IdTipoCaso` int(11) NOT NULL,
@@ -84,7 +84,7 @@ CREATE TABLE `cierrescaso` (
 -- Estructura de tabla para la tabla `comentarios`
 --
 
-CREATE TABLE `comentarios` (
+CREATE TABLE IF NOT EXISTS `comentarios` (
   `IdCaso` int(11) NOT NULL,
   `Descripcion` text COLLATE latin1_spanish_ci NOT NULL,
   `IdUsuario` int(11) NOT NULL,
@@ -97,7 +97,7 @@ CREATE TABLE `comentarios` (
 -- Estructura de tabla para la tabla `estadoscaso`
 --
 
-CREATE TABLE `estadoscaso` (
+CREATE TABLE IF NOT EXISTS `estadoscaso` (
   `IdEstado` int(11) NOT NULL,
   `Descripcion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
@@ -108,7 +108,7 @@ CREATE TABLE `estadoscaso` (
 -- Estructura de tabla para la tabla `modulos`
 --
 
-CREATE TABLE `modulos` (
+CREATE TABLE IF NOT EXISTS `modulos` (
   `IdModulo` int(11) NOT NULL,
   `IdAplicacion` int(11) NOT NULL,
   `Descripcion` varchar(30) COLLATE latin1_spanish_ci NOT NULL
@@ -120,19 +120,21 @@ CREATE TABLE `modulos` (
 -- Estructura de tabla para la tabla `pantallas`
 --
 
-CREATE TABLE `pantallas` (
-  `id` int(10) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `pantallas` (
+`id` int(10) unsigned NOT NULL,
   `nombre` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
   `url` varchar(255) COLLATE latin1_spanish_ci NOT NULL,
   `posicion` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `pantallas`
 --
 
 INSERT INTO `pantallas` (`id`, `nombre`, `url`, `posicion`) VALUES
-(2, 'hola', '/adsda/asda', 1);
+(1, 'ABM Casos', 'aplicacion/modulos/abm-casos/views/viewAbmCasos.html', 1),
+(2, 'ABM Incidentes', 'aplicacion/modulos/abm-incidentes/views/viewABMIncidentes.html', 2),
+(3, 'ABM Pantallas', 'aplicacion/modulos/abm-pantallas/views/viewABMPantallas.html', 3);
 
 -- --------------------------------------------------------
 
@@ -140,7 +142,7 @@ INSERT INTO `pantallas` (`id`, `nombre`, `url`, `posicion`) VALUES
 -- Estructura de tabla para la tabla `soportes`
 --
 
-CREATE TABLE `soportes` (
+CREATE TABLE IF NOT EXISTS `soportes` (
   `IdSoporte` int(11) NOT NULL,
   `Descripcion` text COLLATE latin1_spanish_ci NOT NULL,
   `Telefono` varchar(20) COLLATE latin1_spanish_ci NOT NULL,
@@ -153,7 +155,7 @@ CREATE TABLE `soportes` (
 -- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `usuarios` (
+CREATE TABLE IF NOT EXISTS `usuarios` (
   `IdUsuario` int(11) NOT NULL,
   `Nombre` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
   `IS_STK` varchar(10) COLLATE latin1_spanish_ci NOT NULL,
@@ -170,61 +172,61 @@ CREATE TABLE `usuarios` (
 -- Indices de la tabla `aplicaciones`
 --
 ALTER TABLE `aplicaciones`
-  ADD PRIMARY KEY (`IdAplicacion`);
+ ADD PRIMARY KEY (`IdAplicacion`);
 
 --
 -- Indices de la tabla `basedeconocimientos`
 --
 ALTER TABLE `basedeconocimientos`
-  ADD PRIMARY KEY (`Identificador`);
+ ADD PRIMARY KEY (`Identificador`);
 
 --
 -- Indices de la tabla `casos`
 --
 ALTER TABLE `casos`
-  ADD PRIMARY KEY (`IdCaso`);
+ ADD PRIMARY KEY (`IdCaso`);
 
 --
 -- Indices de la tabla `cierrescaso`
 --
 ALTER TABLE `cierrescaso`
-  ADD PRIMARY KEY (`IdCierreCaso`);
+ ADD PRIMARY KEY (`IdCierreCaso`);
 
 --
 -- Indices de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  ADD PRIMARY KEY (`IdCaso`);
+ ADD PRIMARY KEY (`IdCaso`);
 
 --
 -- Indices de la tabla `estadoscaso`
 --
 ALTER TABLE `estadoscaso`
-  ADD PRIMARY KEY (`IdEstado`);
+ ADD PRIMARY KEY (`IdEstado`);
 
 --
 -- Indices de la tabla `modulos`
 --
 ALTER TABLE `modulos`
-  ADD PRIMARY KEY (`IdModulo`);
+ ADD PRIMARY KEY (`IdModulo`);
 
 --
 -- Indices de la tabla `pantallas`
 --
 ALTER TABLE `pantallas`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `soportes`
 --
 ALTER TABLE `soportes`
-  ADD PRIMARY KEY (`IdSoporte`);
+ ADD PRIMARY KEY (`IdSoporte`);
 
 --
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`IdUsuario`);
+ ADD PRIMARY KEY (`IdUsuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -234,7 +236,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `pantallas`
 --
 ALTER TABLE `pantallas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
