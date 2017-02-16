@@ -17,9 +17,9 @@ app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$fi
     $scope.vistaSeleccionada;
    
     
-    $scope.vistas.push(new Pantalla(0,"ABM Casos","aplicacion/modulos/abm-casos/views/viewAbmCasos.html"));
-    $scope.vistas.push(new Pantalla(1,"ABM Incidentes","aplicacion/modulos/abm-incidentes/views/viewABMIncidentes.html"));
-    $scope.vistas.push(new Pantalla(2,"ABM Pantallas","aplicacion/modulos/abm-pantallas/views/viewABMPantallas.html"));
+//    $scope.vistas.push(new Pantalla(0,"ABM Casos","aplicacion/modulos/abm-casos/views/viewAbmCasos.html"));
+//    $scope.vistas.push(new Pantalla(1,"ABM Incidentes","aplicacion/modulos/abm-incidentes/views/viewABMIncidentes.html"));
+//    $scope.vistas.push(new Pantalla(2,"ABM Pantallas","aplicacion/modulos/abm-pantallas/views/viewABMPantallas.html"));
 
     $scope.vistaSeleccionada = $scope.vistas[0];
     
