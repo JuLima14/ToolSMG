@@ -17,12 +17,11 @@ app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$fi
     $scope.vistas = [];
     $scope.vistaSeleccionada;
    
-    var ip = "172.16.82.38";
+    var ip = "localhost";
 //    $scope.vistas.push(new Pantalla(0,"ABM Casos","aplicacion/modulos/abm-casos/views/viewAbmCasos.html"));
 //    $scope.vistas.push(new Pantalla(1,"ABM Incidentes","aplicacion/modulos/abm-incidentes/views/viewABMIncidentes.html"));
 //    $scope.vistas.push(new Pantalla(2,"ABM Pantallas","aplicacion/modulos/abm-pantallas/views/viewABMPantallas.html"));
 
-    $scope.vistaSeleccionada = $scope.vistas[0];
     
     $scope.goAbmPantalla = function(){
     	$scope.vistaSeleccionada = $scope.abmPantalla;

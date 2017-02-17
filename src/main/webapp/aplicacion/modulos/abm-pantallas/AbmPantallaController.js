@@ -26,7 +26,7 @@ $scope.guardar = function(){
   $http({
     method:'POST',
     url:'http://localhost:8080/api/abmpantallas/registrar',
-    data: view,
+    data: pantalla,
     contentType: "application/json"
     })
     .then(function successCallback(response){
