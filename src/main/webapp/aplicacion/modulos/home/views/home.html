@@ -16,22 +16,22 @@
 			<h5 class="md-toolbar-tools">{{vistaSeleccionada.nombre}}</h5>
 
 			<md-button href="#/login" class="md-icon-button" aria-label="More">
-			<md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon> </md-button>
+				<md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
+			 </md-button>
 		</div>
 		</md-toolbar>
 	</section>
 
 
 	<section>
-		<md-sidenav class="md-sidenav-left" md-component-id="left"
-			md-whiteframe="10"> 
+		<md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="10"> 
 		<md-toolbar class="md-theme-indigo">	
-			<span> 
-				<h1 class="md-toolbar-tools" style="display:inline">Menu</h1>
-				<md-button class="md-icon-button md-primary right-edge" aria-label="Settings">
+			<div class="md-toolbar-tools">
+				<h1 class="md-toolbar-tools">Menu</h1>
+				<md-button class="md-icon-button" aria-label="Settings">
 					<md-icon md-svg-icon="images/icons/settings_24px.svg"></md-icon> 
 				</md-button>
-			</span> 
+			</div> 
 		</md-toolbar> <md-content> <md-list> <md-list-item
 			class="md-3-line" ng-repeat="pantalla in vistas">
 		<div class="md-list-item-text md-button slide-animate"
