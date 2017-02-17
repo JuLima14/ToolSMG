@@ -24,7 +24,7 @@ app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$fi
     $scope.vistaSeleccionada = $scope.vistas[0];
     
     $scope.go = function(id){
-        $scope.vistaSeleccionada = $scope.vistas[id];
+        $scope.vistaSeleccionada = $scope.vistas[id-1];
     };
     
     $scope.cargarVistas = function(){
