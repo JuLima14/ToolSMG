@@ -19,3 +19,7 @@
 .menuBardemoBasicUsage .page p {
 	line-height: 1.6rem;
 }
+
+.right-edge{
+	float: right;
+}
