@@ -13,6 +13,7 @@ app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$fi
   function HomeController($scope, $timeout, $mdSidenav, $log,$filter, $templateRequest, $sce, $compile,$http){
     $scope.toggleLeft = buildDelayedToggler('left');
 
+    $scope.abmPantalla ={};
     $scope.vistas = [];
     $scope.vistaSeleccionada;
    
@@ -22,6 +23,10 @@ app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$fi
 //    $scope.vistas.push(new Pantalla(2,"ABM Pantallas","aplicacion/modulos/abm-pantallas/views/viewABMPantallas.html"));
 
     $scope.vistaSeleccionada = $scope.vistas[0];
+    
+    $scope.goAbmPantalla = function(){
+    	$scope.vistaSeleccionada = $scope.abmPantalla;
+    };
     
     $scope.go = function(id){
         $scope.vistaSeleccionada = $scope.vistas[id-1];
@@ -34,7 +39,11 @@ app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$fi
     		url: "http://localhost:8080/api/abmpantallas/getAll",
     		success: function(result){
     				angular.forEach(result, function(value, key) {
-    	    			$scope.vistas.push(value);
+    					if(value.id == 3){
+    						$scope.abmPantalla = value;
+    					}else{
+    						$scope.vistas.push(value);
+    					}
     				});
     		}});
     	}

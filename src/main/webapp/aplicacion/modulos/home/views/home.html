@@ -28,7 +28,7 @@
 			<md-toolbar class="md-theme-indigo">	
 				<div class="md-toolbar-tools">
 					<h1 class="md-toolbar-tools">Menu</h1>
-						<md-button class="md-icon-button" aria-label="Settings">
+						<md-button class="md-icon-button" aria-label="Settings" ng-model="abmPantalla" ng-click="goAbmPantalla();close()">
 						<md-icon md-svg-icon="images/icons/settings_24px.svg"></md-icon> 
 					</md-button>
 				</div> 
@@ -48,7 +48,7 @@
 
 	<section>
 		<md-content flex="auto">
-		<div ng-include="vistaSeleccionada.url"></div>
+			<div ng-include="vistaSeleccionada.url"></div>
 		</md-content>
 	</section>
 
