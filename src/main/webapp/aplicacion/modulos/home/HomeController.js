@@ -1,7 +1,7 @@
 
 var app = angular.module('HomeModule');
 
-app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$filter','$http',HomeController])
+app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$filter','$http','$registrarPantallaService',HomeController])
 .config(function($mdThemingProvider) {
     // Configure a dark theme with primary foreground yellow
     $mdThemingProvider.theme('docs-dark', 'default')
@@ -10,7 +10,7 @@ app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$fi
 
   });
 
-  function HomeController($scope, $timeout, $mdSidenav, $log,$filter, $templateRequest, $sce, $compile,$http){
+  function HomeController($scope, $timeout, $mdSidenav, $log,$filter, $templateRequest, $sce, $compile,$http,$registrarPantallaService){
     $scope.toggleLeft = buildDelayedToggler('left');
 
     $scope.abmPantalla ={};
@@ -32,21 +32,32 @@ app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$fi
     };
     
     $scope.cargarVistas = function(){
-    	if($scope.vistas.length == 0){
-    	$.ajax({
-    		method:'GET',
-    		url: "http://"+ip+":8080/api/abmpantallas/getAll",
-    		success: function(result){
-    				angular.forEach(result, function(value, key) {
-    					if(value.id == 3){
-    						$scope.abmPantalla = value;
-    					}else{
-    						$scope.vistas.push(value);
-    					}
-    				});
-    		}});
-    	}
-    };
+    	var vistasObtenidas = $registrarPantallaService.cargarVistas($scope.vistas);
+    	
+    	angular.forEach(vistasObtenidas, function(value, key) {
+			if(value.id == 3){
+				$scope.abmPantalla = value;
+			}else{
+				$scope.vistas.push(value);
+			}
+		});
+    }
+//    $scope.cargarVistas = function(){
+//    	if($scope.vistas.length == 0){
+//    	$.ajax({
+//    		method:'GET',
+//    		url: "http://"+ip+":8080/api/abmpantallas/getAll",
+//    		success: function(result){
+//    				angular.forEach(result, function(value, key) {
+//    					if(value.id == 3){
+//    						$scope.abmPantalla = value;
+//    					}else{
+//    						$scope.vistas.push(value);
+//    					}
+//    				});
+//    		}});
+//    	}
+//    };
     
     
     function debounce(func, wait, context) {
