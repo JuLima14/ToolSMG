@@ -17,7 +17,7 @@ app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$fi
     $scope.vistas = [];
     $scope.vistaSeleccionada;
    
-    
+    var ip = "172.16.82.38";
 //    $scope.vistas.push(new Pantalla(0,"ABM Casos","aplicacion/modulos/abm-casos/views/viewAbmCasos.html"));
 //    $scope.vistas.push(new Pantalla(1,"ABM Incidentes","aplicacion/modulos/abm-incidentes/views/viewABMIncidentes.html"));
 //    $scope.vistas.push(new Pantalla(2,"ABM Pantallas","aplicacion/modulos/abm-pantallas/views/viewABMPantallas.html"));
@@ -36,7 +36,7 @@ app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$fi
     	if($scope.vistas.length == 0){
     	$.ajax({
     		method:'GET',
-    		url: "http://localhost:8080/api/abmpantallas/getAll",
+    		url: "http://"+ip+":8080/api/abmpantallas/getAll",
     		success: function(result){
     				angular.forEach(result, function(value, key) {
     					if(value.id == 3){
