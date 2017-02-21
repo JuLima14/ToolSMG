@@ -1,7 +1,7 @@
 
 var app = angular.module('HomeModule');
 
-app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$filter','$http','$registrarPantallaService',HomeController])
+app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$filter','$http',HomeController])
 .config(function($mdThemingProvider) {
     // Configure a dark theme with primary foreground yellow
     $mdThemingProvider.theme('docs-dark', 'default')
@@ -32,32 +32,21 @@ app.controller('HomeController',['$scope', '$timeout', '$mdSidenav', '$log','$fi
     };
     
     $scope.cargarVistas = function(){
-    	var vistasObtenidas = $registrarPantallaService.cargarVistas($scope.vistas);
-    	
-    	angular.forEach(vistasObtenidas, function(value, key) {
-			if(value.id == 3){
-				$scope.abmPantalla = value;
-			}else{
-				$scope.vistas.push(value);
-			}
-		});
-    }
-//    $scope.cargarVistas = function(){
-//    	if($scope.vistas.length == 0){
-//    	$.ajax({
-//    		method:'GET',
-//    		url: "http://"+ip+":8080/api/abmpantallas/getAll",
-//    		success: function(result){
-//    				angular.forEach(result, function(value, key) {
-//    					if(value.id == 3){
-//    						$scope.abmPantalla = value;
-//    					}else{
-//    						$scope.vistas.push(value);
-//    					}
-//    				});
-//    		}});
-//    	}
-//    };
+    	if($scope.vistas.length == 0){
+    	$.ajax({
+    		method:'GET',
+    		url: "http://"+ip+":8080/api/pantallas/getAll",
+    		success: function(result){
+    				angular.forEach(result, function(value, key) {
+    					if(value.id == 3){
+    						$scope.abmPantalla = value;
+    					}else{
+    						$scope.vistas.push(value);
+    					}
+    				});
+    		}});
+    	}
+    };
     
     
     function debounce(func, wait, context) {

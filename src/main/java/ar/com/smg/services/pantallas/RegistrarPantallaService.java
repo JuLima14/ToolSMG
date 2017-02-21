@@ -13,7 +13,7 @@ import org.hibernate.Session;
 import ar.com.smg.database.HibernateUtil;
 
 
-@Path("/abmpantallas")
+@Path("/pantallas")
 public class RegistrarPantallaService {
 
 	
