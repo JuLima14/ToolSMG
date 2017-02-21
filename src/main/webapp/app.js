@@ -10,9 +10,6 @@ angular.module('HttpAuthModule',['libraries']);
 angular.module('AppModule', ['HttpAuthModule','AuthenticationModule','HomeModule','AbmIncidenteModule','AbmCasosModule','AbmPantallaModule'])
 
 
-
-//BasicHttpAuthExample
-//angular.module('BasicHttpAuthExample', ['AuthenticationModule','HomeModule','ngRoute','ngCookies'])
 angular.module('HttpAuthModule')
 .config(['$routeProvider', function ($routeProvider) {
 
