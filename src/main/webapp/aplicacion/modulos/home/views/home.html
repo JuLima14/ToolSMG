@@ -8,17 +8,24 @@
 
 	<section>
 		<md-toolbar md-scroll-shrink ng-if="true">
-		<div class="md-toolbar-tools">
+		<div class="col-md-12">
+		<div class="md-toolbar-tools col-md-6">
 			<md-button class="md-icon-button" aria-label="Settings"
 				ng-disabled="false" ng-click="toggleLeft();cargarVistas();">
 			<md-icon md-svg-icon="img/icons/menu.svg"></md-icon> </md-button>
-
+			<h1 style="width:800px">ToolSMG - Herramienta de Administración y Gestión</h1>
+		</div>
+		<div class="md-toolbar-tools col-md-6">
 			<h5 class="md-toolbar-tools">{{vistaSeleccionada.nombre}}</h5>
-
 			<md-button href="#/login" class="md-icon-button" aria-label="More">
 				<md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
 			 </md-button>
 		</div>
+	
+		
+		</div>
+		
+		
 		</md-toolbar>
 	</section>
 
