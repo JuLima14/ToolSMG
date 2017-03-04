@@ -19,7 +19,7 @@ function AbmCasosDirective($compile) {
 };
 
 function AbmCasosController($scope,$http) {
-
+	$scope.currentNavItem = 'Caso'; 
     $scope.vistaSeleccionada = {};
     $scope.vistas = [];
 
@@ -45,6 +45,8 @@ function AbmCasosController($scope,$http) {
     $scope.soportes;
     $scope.asignados;
     
+    
+   
     
 //  $.ajax({
 //	method:'GET',

@@ -23,3 +23,18 @@
 .right-edge{
 	float: right;
 }
+
+.title-screen-right {
+	position: absolute;
+    left: 1100px;
+}
+
+.btn-screen-right {
+	position: absolute;
+    right: 0px;
+    left:1300px;
+}
+
+.menu-side-items{
+	text-align: left;
+}

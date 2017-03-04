@@ -3,6 +3,7 @@
 	<md-content class="md-padding"> 
 	
 	<md-nav-bar
+		md-selected-nav-item="currentNavItem"
 		nav-bar-aria-label="navigation links"> 
 		<md-nav-item ng-repeat="item in vistas" md-nav-click="go(item.id)" name="{{item.nombre}}">
 		{{item.nombre}}
@@ -12,8 +13,6 @@
 		<md-button class="md-raised md-primary" ng-click="">Nuevo Caso</md-button> 
 		</div>
 	</md-nav-bar>
-
-	
 	<div class="ext-content">
 		<div ng-include="vistaSeleccionada.url"></div>
 	</div>
