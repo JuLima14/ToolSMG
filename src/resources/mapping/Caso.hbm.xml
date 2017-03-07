@@ -44,5 +44,33 @@
   <property generated="never" lazy="false" name="idAplicacion" type="int">
    <column name="IdAplicacion" not-null="true"/>
   </property>
+   <property generated="never" lazy="false" name="idPrioridad" type="int">
+   <column name="IdPrioridad" not-null="true"/>
+  </property>
+   <property generated="never" lazy="false" name="idAsignado" type="int">
+   <column name="IdAsignado" not-null="true"/>
+  </property>
+   <property generated="never" lazy="false" name="idClasificacion" type="int">
+   <column name="IdClasificacion" not-null="true"/>
+  </property>
+   <property generated="never" lazy="false" name="idVinculo" type="int">
+   <column name="IdVinculo" not-null="true"/>
+  </property> 
+   <property generated="never" lazy="false" name="fechaEstimada" type="date">
+   <column name="FechaEstimada" not-null="false"/>
+  </property>
+   <property generated="never" lazy="false" name="imputado" type="string">
+   <column name="Imputado" not-null="true"/>
+  </property>
+   <property generated="never" lazy="false" name="estimado" type="string">
+   <column name="Estimado" not-null="true"/>
+  </property>
+   <property generated="never" lazy="false" name="implementacion" type="string">
+   <column name="Implementacion" not-null="true"/>
+  </property>
+   <property generated="never" lazy="false" name="reportadoPor" type="string">
+   <column name="ReportadoPor" not-null="true"/>
+  </property>
+  
  </class>
 </hibernate-mapping>
