@@ -7,12 +7,12 @@ package ar.com.smg.entities;
 public class Aplicacion implements java.io.Serializable {
 
 	private int idAplicacion;
-	private int descripcion;
+	private String descripcion;
 
 	public Aplicacion() {
 	}
 
-	public Aplicacion(int idAplicacion, int descripcion) {
+	public Aplicacion(int idAplicacion, String descripcion) {
 		this.idAplicacion = idAplicacion;
 		this.descripcion = descripcion;
 	}
@@ -25,11 +25,11 @@ public class Aplicacion implements java.io.Serializable {
 		this.idAplicacion = idAplicacion;
 	}
 
-	public int getDescripcion() {
+	public String getDescripcion() {
 		return this.descripcion;
 	}
 
-	public void setDescripcion(int descripcion) {
+	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
 

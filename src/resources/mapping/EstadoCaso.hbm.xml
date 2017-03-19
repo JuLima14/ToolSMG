@@ -8,7 +8,7 @@
    <column name="IdEstado"/>
    <generator class="assigned"/>
   </id>
-  <property generated="never" lazy="false" name="descripcion" type="int">
+  <property generated="never" lazy="false" name="descripcion" type="string">
    <column name="Descripcion" not-null="true"/>
   </property>
  </class>
