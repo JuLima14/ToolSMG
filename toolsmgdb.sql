@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-02-2017 a las 21:40:41
+-- Tiempo de generación: 19-03-2017 a las 21:24:14
 -- Versión del servidor: 5.5.39
 -- Versión de PHP: 5.4.31
 
@@ -28,8 +28,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `aplicaciones` (
   `IdAplicacion` int(11) NOT NULL,
-  `Descripcion` int(11) NOT NULL
+  `Descripcion` varchar(50) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `aplicaciones`
+--
+
+INSERT INTO `aplicaciones` (`IdAplicacion`, `Descripcion`) VALUES
+(1, 'Portal'),
+(2, 'SRVUC-Turnos'),
+(3, 'SRVUC-MaestroTurnos'),
+(4, 'SRVUC-PortalServicios'),
+(5, 'WUCAPP-Taca');
 
 -- --------------------------------------------------------
 
@@ -62,8 +73,24 @@ CREATE TABLE IF NOT EXISTS `casos` (
   `SolicitadoPor` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
   `Identificador` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
   `IdModulo` int(11) NOT NULL,
-  `IdAplicacion` int(11) NOT NULL
+  `IdAplicacion` int(11) NOT NULL,
+  `IdPrioridad` int(11) NOT NULL,
+  `IdAsignado` int(11) NOT NULL,
+  `IdClasificacion` int(11) NOT NULL,
+  `IdVinculo` int(11) NOT NULL,
+  `FechaEstimada` date DEFAULT NULL,
+  `Imputado` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
+  `Estimado` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
+  `Implementacion` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
+  `ReportadoPor` varchar(50) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `casos`
+--
+
+INSERT INTO `casos` (`IdCaso`, `Descripcion`, `IdEstado`, `IdSeveridad`, `IdUsuario`, `FechaRegistro`, `FechaCierre`, `IdSoporte`, `IdTipoCaso`, `SolicitadoPor`, `Identificador`, `IdModulo`, `IdAplicacion`, `IdPrioridad`, `IdAsignado`, `IdClasificacion`, `IdVinculo`, `FechaEstimada`, `Imputado`, `Estimado`, `Implementacion`, `ReportadoPor`) VALUES
+(3150768, 'Caso re loco que rompe todo!!\r\n\r\nGracias por verlo.', 1, 1, 1, '2017-03-19', '2017-03-19', 1, 1, '1', 'No tengo idea', 1, 1, 2, 1, 1, 1, NULL, '', '', '', 'Mongopicho');
 
 -- --------------------------------------------------------
 
@@ -77,6 +104,24 @@ CREATE TABLE IF NOT EXISTS `cierrescaso` (
   `IdTipoCaso` int(11) NOT NULL,
   `Habilitado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `clasificaciones`
+--
+
+CREATE TABLE IF NOT EXISTS `clasificaciones` (
+  `idClasificacion` int(2) NOT NULL,
+  `descripcion` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `clasificaciones`
+--
+
+INSERT INTO `clasificaciones` (`idClasificacion`, `descripcion`) VALUES
+(1, 'No tengo idea que va aca');
 
 -- --------------------------------------------------------
 
@@ -99,8 +144,17 @@ CREATE TABLE IF NOT EXISTS `comentarios` (
 
 CREATE TABLE IF NOT EXISTS `estadoscaso` (
   `IdEstado` int(11) NOT NULL,
-  `Descripcion` int(11) NOT NULL
+  `Descripcion` varchar(50) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `estadoscaso`
+--
+
+INSERT INTO `estadoscaso` (`IdEstado`, `Descripcion`) VALUES
+(1, 'Recibido'),
+(2, 'En Proceso'),
+(3, 'En Pausa');
 
 -- --------------------------------------------------------
 
@@ -113,6 +167,16 @@ CREATE TABLE IF NOT EXISTS `modulos` (
   `IdAplicacion` int(11) NOT NULL,
   `Descripcion` varchar(30) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `modulos`
+--
+
+INSERT INTO `modulos` (`IdModulo`, `IdAplicacion`, `Descripcion`) VALUES
+(1, 1, 'CMA'),
+(2, 1, 'ODO'),
+(3, 1, 'Turnos'),
+(4, 1, 'Cajas');
 
 -- --------------------------------------------------------
 
@@ -139,6 +203,48 @@ INSERT INTO `pantallas` (`id`, `nombre`, `url`, `posicion`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `prioridades`
+--
+
+CREATE TABLE IF NOT EXISTS `prioridades` (
+  `idPrioridad` int(2) NOT NULL,
+  `descripcion` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `prioridades`
+--
+
+INSERT INTO `prioridades` (`idPrioridad`, `descripcion`) VALUES
+(1, 'Critico'),
+(2, 'Alta'),
+(3, 'Media'),
+(4, 'Baja');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `severidades`
+--
+
+CREATE TABLE IF NOT EXISTS `severidades` (
+  `idSeveridad` int(2) NOT NULL,
+  `descripcion` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `severidades`
+--
+
+INSERT INTO `severidades` (`idSeveridad`, `descripcion`) VALUES
+(1, 'Baja'),
+(2, 'Media'),
+(3, 'Alta'),
+(4, 'Crítica');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `soportes`
 --
 
@@ -148,6 +254,35 @@ CREATE TABLE IF NOT EXISTS `soportes` (
   `Telefono` varchar(20) COLLATE latin1_spanish_ci NOT NULL,
   `Correo` varchar(50) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci ROW_FORMAT=COMPACT;
+
+--
+-- Volcado de datos para la tabla `soportes`
+--
+
+INSERT INTO `soportes` (`IdSoporte`, `Descripcion`, `Telefono`, `Correo`) VALUES
+(1, 'Bases de Datos', '1165616516', 'lalalaa@swissmedical.com.ar'),
+(2, 'Infraestructura', '159862354', 'infra@smg.com');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tiposcaso`
+--
+
+CREATE TABLE IF NOT EXISTS `tiposcaso` (
+  `idTipoCaso` int(2) NOT NULL,
+  `descripcion` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tiposcaso`
+--
+
+INSERT INTO `tiposcaso` (`idTipoCaso`, `descripcion`) VALUES
+(1, 'Incidente'),
+(2, 'Cambio'),
+(3, 'Cambio tratado como incidente'),
+(4, 'Tarea');
 
 -- --------------------------------------------------------
 
@@ -163,6 +298,31 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `Habillitado` tinyint(1) NOT NULL,
   `Password` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`IdUsuario`, `Nombre`, `IS_STK`, `Jornada`, `Habillitado`, `Password`) VALUES
+(1, 'Leonardo Lamaruggine', 'LEL2', 918, 1, 123456);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `vinculos`
+--
+
+CREATE TABLE IF NOT EXISTS `vinculos` (
+  `idVinculo` int(2) NOT NULL,
+  `descripcion` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `vinculos`
+--
+
+INSERT INTO `vinculos` (`idVinculo`, `descripcion`) VALUES
+(1, 'Que sera un vinculo??');
 
 --
 -- Índices para tablas volcadas
@@ -193,6 +353,12 @@ ALTER TABLE `cierrescaso`
  ADD PRIMARY KEY (`IdCierreCaso`);
 
 --
+-- Indices de la tabla `clasificaciones`
+--
+ALTER TABLE `clasificaciones`
+ ADD PRIMARY KEY (`idClasificacion`);
+
+--
 -- Indices de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
@@ -217,16 +383,40 @@ ALTER TABLE `pantallas`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `prioridades`
+--
+ALTER TABLE `prioridades`
+ ADD PRIMARY KEY (`idPrioridad`);
+
+--
+-- Indices de la tabla `severidades`
+--
+ALTER TABLE `severidades`
+ ADD PRIMARY KEY (`idSeveridad`);
+
+--
 -- Indices de la tabla `soportes`
 --
 ALTER TABLE `soportes`
  ADD PRIMARY KEY (`IdSoporte`);
 
 --
+-- Indices de la tabla `tiposcaso`
+--
+ALTER TABLE `tiposcaso`
+ ADD PRIMARY KEY (`idTipoCaso`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
  ADD PRIMARY KEY (`IdUsuario`);
+
+--
+-- Indices de la tabla `vinculos`
+--
+ALTER TABLE `vinculos`
+ ADD PRIMARY KEY (`idVinculo`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas

@@ -1,22 +1,28 @@
 
-function Caso(codigo,aplicacion,modulo,reportadoPor,fecha,tipo,clasificacion,vinculo,descripcion,soporte,asignado,implementacion,estado,prioridad,estimado,imputadoHoras,estimadoHoras,fechaCierre){
-  this.codigo = codigo;
-  this.aplicacion = aplicacion;
-  this.modulo = modulo;
-  this.reportadoPor = reportadoPor;
-  this.fecha = fecha;
-  this.tipo = tipo;
-  this.clasificacion = clasificacion;
-  this.vinculo = vinculo;
-  this.descripcion = descripcion;
-  this.soporte = soporte;
-  this.asignado = asignado;
-  this.implementacion = implementacion;
-  this.estado = estado;
-  this.prioridad = prioridad;
-  this.estimado = estimado;
-  this.imputadoHoras = imputadoHoras;
-  this.estimadoHoras = estimadoHoras;
-  this.fechaCierre = fechaCierre;
+function Caso(idCaso,descripcion,idEstado,idSeveridad,idUsuario,fechaRegistro,fechaCierre,idSoporte,idTipoCaso,solicitadoPor,identificador,idModulo,idAplicacion,idPrioridad,idAsignado,
+		idClasificacion,idVinculo,fechaEstimada, imputado,estimado,implementacion,reportadoPor)
+{
+	this.idCaso = idCaso;
+	this.descripcion = descripcion;
+	this.idEstado = idEstado;
+	this.idSeveridad = idSeveridad;
+	this.idUsuario = idUsuario;
+	this.fechaRegistro = fechaRegistro;
+	this.fechaCierre = fechaCierre;
+	this.idSoporte = idSoporte;
+	this.idTipoCaso = idTipoCaso;
+	this.solicitadoPor = solicitadoPor;
+	this.identificador = identificador;
+	this.idModulo = idModulo;
+	this.idAplicacion = idAplicacion;
+	this.idPrioridad = idPrioridad;
+	this.idAsignado = idAsignado;
+	this.idClasificacion = idClasificacion;
+	this.idVinculo = idVinculo;
+	this.fechaEstimada = fechaEstimada;
+	this.imputado = imputado;
+	this.estimado = estimado;
+	this.implementacion = implementacion;
+	this.reportadoPor = reportadoPor;
 
 }

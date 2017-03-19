@@ -4,9 +4,12 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import org.hibernate.Session;
 import ar.com.smg.database.HibernateUtil;
 import ar.com.smg.entities.Caso;
@@ -16,6 +19,7 @@ public class CasosService {
 
 	
 	Gson gson = new Gson();
+//	Gson gson = new GsonBuilder().setDateFormat("MMM d, yyyy").create();
 	
 	@POST
 	@Path("/registrar")
@@ -68,6 +72,34 @@ public class CasosService {
 	}
 	
 
+	@GET
+	@Path("/get/{id}")
+	@Produces("application/json")
+	public Response getCasos(@PathParam("id") int id){
+		
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		String response = null;
+		
+		try {
+			
+			session.beginTransaction();
+			response = gson.toJson(session.createQuery("from Caso where IdCaso = :idcaso")
+						.setParameter("idcaso", id)
+						.getResultList());
+//			Caso caso = new Caso();
+//			caso = gson.fromJson(response, Caso.class);
+			System.out.println(response);
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		
+		return Response.ok(response).build();
+	}
+	
+	
 	@GET
 	@Path("/getModulos")
 	@Produces("application/json")

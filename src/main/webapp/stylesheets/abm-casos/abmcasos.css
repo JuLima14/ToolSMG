@@ -1,3 +1,11 @@
 .ext-content{
 	margin-top:25px;
 }
+
+.ic-size-36{
+	font-size: 36px;
+}
+
+.inline-align{
+	display: -webkit-box;
+}

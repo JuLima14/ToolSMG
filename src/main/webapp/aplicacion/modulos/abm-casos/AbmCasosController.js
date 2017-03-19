@@ -40,7 +40,7 @@ function AbmCasosController($scope,$http) {
     $scope.tipos;
     $scope.clasificaciones;
     $scope.vinculos;
-    
+    $scope.casoActual;
     $scope.busquedaCasos;
     $scope.soportes;
     $scope.asignados;
@@ -109,6 +109,23 @@ function AbmCasosController($scope,$http) {
 //			});
 //	}}); 
     
+    $scope.getCaso = function(){
+   
+      if ($scope.caso.idCaso != $scope.casoActual) {
+
+      $.ajax({
+    	method:'GET',
+    	url: "http://localhost:8080/api/casos/get/3150768",
+    	success: function(result){
+    			angular.forEach(result, function(value, key) {
+    				
+    					$scope.caso =  Object.assign(new Caso(), value);
+    					$scope.casoActual = $scope.caso.idCaso;
+    			});
+    	}}); 
+      }
+      
+    };
     
     $scope.estados = ('1 - Recibido ;2 - En proceso ;3 - En pausa ;4 - Fix en otro INC ;5 - Envio Pre ;6 - Envio Pro ;7 - Re Abierto ;8 - Cerrado ;9 - Derivado ;10 - Requiere OK SMG ;11 - Verifica y Cierra ;12 - Portal No autorizado ;13 - En sector QA - STK')
     .split(';').map(function(estado){

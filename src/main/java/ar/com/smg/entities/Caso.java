@@ -286,5 +286,18 @@ public class Caso implements java.io.Serializable {
 	}
 
 
+	@Override
+	public String toString() {
+		return "Caso [idCaso=" + idCaso + ", descripcion=" + descripcion + ", idEstado=" + idEstado + ", idSeveridad="
+				+ idSeveridad + ", idUsuario=" + idUsuario + ", fechaRegistro=" + fechaRegistro + ", fechaCierre="
+				+ fechaCierre + ", idSoporte=" + idSoporte + ", idTipoCaso=" + idTipoCaso + ", solicitadoPor="
+				+ solicitadoPor + ", identificador=" + identificador + ", idModulo=" + idModulo + ", idAplicacion="
+				+ idAplicacion + ", idPrioridad=" + idPrioridad + ", idAsignado=" + idAsignado + ", idClasificacion="
+				+ idClasificacion + ", idVinculo=" + idVinculo + ", fechaEstimada=" + fechaEstimada + ", imputado="
+				+ imputado + ", estimado=" + estimado + ", implementacion=" + implementacion + ", reportadoPor="
+				+ reportadoPor + "]";
+	}
+
+
 	
 }
